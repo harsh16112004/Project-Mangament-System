@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Management System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Project Management System</h1>
+    <p>Web-based application showcasing 12 modules for project planning and delivery.</p>
+  </header>
+
+  <main>
+    <section class="quick-actions">
+      <button id="loadDemo">Load Demo Preview Data</button>
+      <p class="hint">Use this to instantly preview the system with sample users, projects, tasks, comments, and analytics.</p>
+    </section>
+
+    <section>
+      <h2>Core Modules</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>1) User Management</h3>
+          <form id="userForm">
+            <input name="name" placeholder="User name" required />
+            <input name="email" type="email" placeholder="Email" required />
+            <input name="password" type="password" placeholder="Password" required />
+            <select name="role" required>
+              <option value="">Select role</option>
+              <option>Admin</option>
+              <option>Manager</option>
+              <option>Team Member</option>
+            </select>
+            <button type="submit">Register User</button>
+          </form>
+          <ul id="usersList"></ul>
+        </article>
+
+        <article class="card">
+          <h3>2) Project Management</h3>
+          <form id="projectForm">
+            <input name="title" placeholder="Project title" required />
+            <textarea name="description" placeholder="Description" required></textarea>
+            <input name="manager" placeholder="Project manager" required />
+            <label>Start date <input name="startDate" type="date" required /></label>
+            <label>End date <input name="endDate" type="date" required /></label>
+            <button type="submit">Create Project</button>
+          </form>
+          <ul id="projectsList"></ul>
+        </article>
+
+        <article class="card">
+          <h3>3) Task Management</h3>
+          <form id="taskForm">
+            <input name="name" placeholder="Task name" required />
+            <input name="assignee" placeholder="Assignee" required />
+            <label>Deadline <input name="deadline" type="date" required /></label>
+            <select name="priority" required>
+              <option value="">Priority</option>
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+            </select>
+            <select name="status" required>
+              <option>Pending</option>
+              <option>In Progress</option>
+              <option>Done</option>
+            </select>
+            <button type="submit">Create Task</button>
+          </form>
+          <ul id="tasksList"></ul>
+        </article>
+
+        <article class="card">
+          <h3>4) Team Collaboration</h3>
+          <form id="commentForm">
+            <input name="author" placeholder="Name" required />
+            <textarea name="message" placeholder="Comment / message" required></textarea>
+            <button type="submit">Post Message</button>
+          </form>
+          <ul id="commentsList"></ul>
+        </article>
+
+        <article class="card">
+          <h3>5) Progress Tracking</h3>
+          <div id="progressSummary"></div>
+          <div class="bar-wrap">
+            <div id="progressBar"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>System Modules</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>6) Reporting</h3>
+          <p>Generate project, task, and productivity report.</p>
+          <button id="generateReport">Generate JSON Report</button>
+          <pre id="reportOutput"></pre>
+        </article>
+
+        <article class="card">
+          <h3>7) Notification</h3>
+          <p>Latest system alerts based on events:</p>
+          <ul id="notificationList"></ul>
+        </article>
+
+        <article class="card">
+          <h3>8) Admin</h3>
+          <button id="clearAll">Admin: Reset System Data</button>
+          <p class="hint">Deletes users, projects, tasks, comments, and advanced-module records.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Advanced Modules</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>9) Time Tracking</h3>
+          <form id="timeForm">
+            <input name="member" placeholder="Member" required />
+            <input name="task" placeholder="Task" required />
+            <input name="hours" type="number" min="0.5" step="0.5" placeholder="Hours" required />
+            <button type="submit">Log Time</button>
+          </form>
+          <ul id="timeList"></ul>
+        </article>
+
+        <article class="card">
+          <h3>10) Resource Management</h3>
+          <form id="resourceForm">
+            <input name="resource" placeholder="Resource" required />
+            <input name="project" placeholder="Project" required />
+            <input name="allocation" type="number" min="1" max="100" placeholder="Allocation %" required />
+            <button type="submit">Assign Resource</button>
+          </form>
+          <ul id="resourceList"></ul>
+        </article>
+
+        <article class="card">
+          <h3>11) Risk Management</h3>
+          <form id="riskForm">
+            <input name="risk" placeholder="Risk title" required />
+            <select name="impact" required>
+              <option value="">Impact</option>
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+            </select>
+            <textarea name="mitigation" placeholder="Mitigation plan" required></textarea>
+            <button type="submit">Add Risk</button>
+          </form>
+          <ul id="riskList"></ul>
+        </article>
+
+        <article class="card">
+          <h3>12) Dashboard & Analytics</h3>
+          <div id="dashboardStats"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
